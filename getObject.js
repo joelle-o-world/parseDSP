@@ -1,5 +1,3 @@
-
-
 function getObject(str, i0) {
   i0 = i0 || 0
   if(str[i0] != "[")

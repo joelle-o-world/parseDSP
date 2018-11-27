@@ -7,5 +7,6 @@ function skipWhitespace(str, i0) {
       continue
     else
       return i
+  return i
 }
 module.exports = skipWhitespace

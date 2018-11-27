@@ -6,6 +6,7 @@ const countWhitespace = require("./countWhitespace.js")
 const getArgument = require("./getArgument.js")
 const getObject = require("./getObject.js")
 const getObjectOrObjectProperty = require("./getObjectOrObjectProperty")
+const getObjects = require("./getObjects.js")
 
 var testStrings = [
   "Hello!",
@@ -18,7 +19,8 @@ var testStrings = [
   "[mix a=[osc] b = [cake]]",
   "[Osc #osc1 ]",
   "[Osc #osc ].OUT",
-  "[Osc A:[Osc F=5] F=440]"
+  "[Osc A:[Osc F=5] F=440]",
+  "[Osc] [Sum]",
 
 ]
 
@@ -28,10 +30,11 @@ for(var i in testStrings) {
 //  console.log("getWord:", getWord(str))
 //  console.log("getNumber:", getNumber(str))
 //  console.log("getObjectReference:", getObjectReference(str))
-  console.log("getExpression:", getExpression(str))
+//  console.log("getExpression:", getExpression(str))
 //  console.log("countWhitespace:", countWhitespace(str))
 //  console.log("getArgument:", getArgument(str))
 //  console.log("getObject:", getObject(str))
 //  console.log("getObjectOrObjectProperty:", getObjectOrObjectProperty(str))
+  console.log("getObjects:", getObjects(str))
   console.log("\n")
 }
