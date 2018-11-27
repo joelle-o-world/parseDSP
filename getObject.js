@@ -1,7 +1,4 @@
-const skipWhitespace = require("./skipWhitespace.js")
-const getWord = require("./getWord")
-const getArgument = require("./getArgument")
-const countWhitespace = require("./countWhitespace")
+
 
 function getObject(str, i0) {
   i0 = i0 || 0
@@ -51,4 +48,9 @@ function getObject(str, i0) {
 
   return null
 }
+
 module.exports = getObject
+const skipWhitespace = require("./skipWhitespace.js")
+const getWord = require("./getWord")
+const getArgument = require("./getArgument")
+const countWhitespace = require("./countWhitespace")

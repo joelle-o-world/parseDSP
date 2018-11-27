@@ -1,6 +1,3 @@
-const getObject = require("./getObject")
-const getDotProperty = require("./getDotProperty")
-
 function getObjectOrObjectProperty(str, i0) {
   i0 = i0 || 0
   var object = getObject(str, i0)
@@ -19,4 +16,7 @@ function getObjectOrObjectProperty(str, i0) {
   else
     return object
 }
+
 module.exports = getObjectOrObjectProperty
+const getObject = require("./getObject")
+const getDotProperty = require("./getDotProperty")

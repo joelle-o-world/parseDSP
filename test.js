@@ -18,6 +18,7 @@ var testStrings = [
   "[mix a=[osc] b = [cake]]",
   "[Osc #osc1 ]",
   "[Osc #osc ].OUT",
+  "[Osc A:[Osc F=5] F=440]"
 
 ]
 
