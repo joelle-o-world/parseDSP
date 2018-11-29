@@ -7,8 +7,12 @@ const getArgument = require("./getArgument.js")
 const getObject = require("./getObject.js")
 const getObjectOrObjectProperty = require("./getObjectOrObjectProperty")
 const getObjects = require("./getObjects.js")
+const getOperatorOperand = require("./getOperatorOperand")
+const getExpressions = require("./getExpressions")
 
-var testStrings = [
+const argv = require("minimist")(process.argv.slice(2))
+
+var testStrings = argv._ || [
   "Hello!",
   " !!!",
   "22.5 6",
@@ -20,8 +24,8 @@ var testStrings = [
   "[Osc #osc1 ]",
   "[Osc #osc ].OUT",
   "[Osc A:[Osc F=5] F=440]",
-  "[Osc] [Sum]",
-
+  "[Osc]+[Sum]",
+  " + 4 * 5"
 ]
 
 for(var i in testStrings) {
@@ -30,11 +34,13 @@ for(var i in testStrings) {
 //  console.log("getWord:", getWord(str))
 //  console.log("getNumber:", getNumber(str))
 //  console.log("getObjectReference:", getObjectReference(str))
-//  console.log("getExpression:", getExpression(str))
+  console.log("getExpressions:", getExpressions(str))
 //  console.log("countWhitespace:", countWhitespace(str))
 //  console.log("getArgument:", getArgument(str))
 //  console.log("getObject:", getObject(str))
 //  console.log("getObjectOrObjectProperty:", getObjectOrObjectProperty(str))
-  console.log("getObjects:", getObjects(str))
+  //console.log("getObjects:", getObjects(str))
+  //console.log("getOperation:", getOperation(str))
+  //console.log("getOperatorOperand:", getOperatorOperand(str))
   console.log("\n")
 }

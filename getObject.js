@@ -24,7 +24,6 @@ function getObject(str, i0) {
 
     if(countWhitespace(str, iN)) {
       iN = skipWhitespace(str, iN)
-
       if(str[iN] == "]") {
         obj.length = iN-i0 + 1
         return obj
