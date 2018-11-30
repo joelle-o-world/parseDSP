@@ -73,6 +73,10 @@ function getSimpleExpression(str, startIndex) {
   if(obj)
     return obj
 
+  var shorthand = getShorthand(str, startIndex)
+  if(shorthand)
+    return shorthand
+
   return null
 }
 
@@ -83,3 +87,4 @@ const getObjectReference = require("./getObjectReference.js")
 const getNumber = require("./getNumber.js")
 const skipWhitespace = require("./skipWhitespace")
 const getOperatorOperand = require("./getOperatorOperand")
+const getShorthand = require("./getShorthand")

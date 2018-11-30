@@ -9,24 +9,28 @@ const getObjectOrObjectProperty = require("./getObjectOrObjectProperty")
 const getObjects = require("./getObjects.js")
 const getOperatorOperand = require("./getOperatorOperand")
 const getExpressions = require("./getExpressions")
+const getShorthand = require("./getShorthand")
 
 const argv = require("minimist")(process.argv.slice(2))
 
-var testStrings = argv._ || [
-  "Hello!",
-  " !!!",
-  "22.5 6",
-  "#Osc1",
-  "F = 440",
-  "[Osc]",
-  "[Osc f=440]",
-  "[mix a=[osc] b = [cake]]",
-  "[Osc #osc1 ]",
-  "[Osc #osc ].OUT",
-  "[Osc A:[Osc F=5] F=440]",
-  "[Osc]+[Sum]",
-  " + 4 * 5"
-]
+if(argv._.length)
+  var testStrings =  argv._ 
+else
+  var testStrings = [
+    "Hello!",
+    " !!!",
+    "22.5 6",
+    "#Osc1",
+    "F = 440",
+    "[Osc]",
+    "[Osc f=440]",
+    "[mix a=[osc] b = [cake]]",
+    "[Osc #osc1 ]",
+    "[Osc #osc ].OUT",
+    "[Osc A:[Osc F=5] F=440]",
+    "[Osc]+[Sum]",
+    " + 4 * 5"
+  ]
 
 for(var i in testStrings) {
   var str = testStrings[i]
@@ -42,5 +46,6 @@ for(var i in testStrings) {
   //console.log("getObjects:", getObjects(str))
   //console.log("getOperation:", getOperation(str))
   //console.log("getOperatorOperand:", getOperatorOperand(str))
+  console.log("getShorthand:", getShorthand(str))
   console.log("\n")
 }

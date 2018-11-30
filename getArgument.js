@@ -6,7 +6,8 @@ function getArgument(str, i0) {
   if(id) return id
 
   var attr = getAttribute(str, i0)
-  return attr
+  if(attr)
+    return attr
 
   return null
 }
