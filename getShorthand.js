@@ -1,7 +1,7 @@
 function getShorthand(str, i0) {
   i0 = i0 || 0
   var constr = getWord(str, i0)
-  if(!constr)
+  if(!constr || config.shorthandConstructors.indexOf(constr) == -1)
     return null
 
   var iN = i0 + constr.length-1
@@ -26,3 +26,4 @@ function getShorthand(str, i0) {
 module.exports = getShorthand
 const getWord = require("./getWord")
 const getNumber = require("./getNumber")
+const config = require("./config")

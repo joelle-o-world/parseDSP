@@ -14,22 +14,10 @@ const getShorthand = require("./getShorthand")
 const argv = require("minimist")(process.argv.slice(2))
 
 if(argv._.length)
-  var testStrings =  argv._ 
+  var testStrings =  argv._
 else
   var testStrings = [
-    "Hello!",
-    " !!!",
-    "22.5 6",
-    "#Osc1",
-    "F = 440",
-    "[Osc]",
-    "[Osc f=440]",
-    "[mix a=[osc] b = [cake]]",
-    "[Osc #osc1 ]",
-    "[Osc #osc ].OUT",
-    "[Osc A:[Osc F=5] F=440]",
-    "[Osc]+[Sum]",
-    " + 4 * 5"
+    "[Ramp 1 0 trigger D:10]"
   ]
 
 for(var i in testStrings) {
@@ -38,10 +26,10 @@ for(var i in testStrings) {
 //  console.log("getWord:", getWord(str))
 //  console.log("getNumber:", getNumber(str))
 //  console.log("getObjectReference:", getObjectReference(str))
-  console.log("getExpressions:", getExpressions(str))
+//  console.log("getExpressions:", getExpressions(str))
 //  console.log("countWhitespace:", countWhitespace(str))
 //  console.log("getArgument:", getArgument(str))
-//  console.log("getObject:", getObject(str))
+  console.log("getObject:", getObject(str))
 //  console.log("getObjectOrObjectProperty:", getObjectOrObjectProperty(str))
   //console.log("getObjects:", getObjects(str))
   //console.log("getOperation:", getOperation(str))

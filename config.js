@@ -11,7 +11,9 @@ module.exports = {
     "Hz",
   ],
 
-  shorthandConstructors: [
-    "O"
-  ]
+  shorthandConstructors: ["O", "Z"]
 }
+
+const components = require("../components")
+for(var constr in components)
+  module.exports.shorthandConstructors.push(constr)

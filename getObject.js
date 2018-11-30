@@ -13,6 +13,8 @@ function getObject(str, i0) {
     type: "object",
     constructor: constructor,
     arguments: [],
+    flags: [],
+    attributes: [],
   }
 
   var iN = i1 + constructor.length
@@ -33,10 +35,26 @@ function getObject(str, i0) {
       if(!arg)
         return null
 
-      if(arg.type == "id")
-        obj.id = arg.id
-      else
-        obj.arguments.push(arg)
+      switch(arg.type) {
+        case "id":
+          obj.id = arg.id
+          break;
+
+        case "attribute":
+          obj.attributes.push(arg)
+          break;
+
+        case "unnamedArgument":
+          obj.arguments.push(arg)
+          break;
+
+        case "flag":
+          obj.flags.push(arg)
+          break;
+
+        default:
+          return null;
+      }
       iN += arg.length
     } else
       return null
