@@ -4,14 +4,15 @@ module.exports = {
     "/",
     "+",
     "-",
-    ","
+    ",", // concat
+    ">", // connect
   ], // the order of this list determines binding order
   units: [
     "s", "ms",
     "Hz",
   ],
 
-  shorthandConstructors: ["O", "Z"]
+  shorthandConstructors: ["O", "Z", "Sq", "A", "D"]
 }
 
 const components = require("../components")

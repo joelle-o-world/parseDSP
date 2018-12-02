@@ -10,6 +10,8 @@ const getObjects = require("./getObjects.js")
 const getOperatorOperand = require("./getOperatorOperand")
 const getExpressions = require("./getExpressions")
 const getShorthand = require("./getShorthand")
+const getSpecific = require("./getSpecific")
+const getString = require("./getString")
 
 const argv = require("minimist")(process.argv.slice(2))
 
@@ -35,5 +37,7 @@ for(var i in testStrings) {
   //console.log("getOperation:", getOperation(str))
   //console.log("getOperatorOperand:", getOperatorOperand(str))
   console.log("getShorthand:", getShorthand(str))
+  console.log("getSpecific ('cat'):", getSpecific("cat", str))
+  console.log("getString:", getString(str))
   console.log("\n")
 }

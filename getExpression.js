@@ -77,6 +77,10 @@ function getSimpleExpression(str, startIndex) {
   if(shorthand)
     return shorthand
 
+  var string = getString(str, startIndex)
+  if(string)
+    return string
+
   return null
 }
 
@@ -88,3 +92,4 @@ const getNumber = require("./getNumber.js")
 const skipWhitespace = require("./skipWhitespace")
 const getOperatorOperand = require("./getOperatorOperand")
 const getShorthand = require("./getShorthand")
+const getString = require("./getString")

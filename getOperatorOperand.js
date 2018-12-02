@@ -7,7 +7,7 @@ function getOperatorOperand(str, i0) {
   if(bindingOrder == -1)
     return null
 
-  var i2 = skipWhitespace(str, i1+1)
+  var i2 = skipWhitespace(str, i1+operator.length)
 
   var b = getExpression.simple(str, i2)
   if(!b)
@@ -26,3 +26,4 @@ module.exports = getOperatorOperand
 const getExpression = require("./getExpression.js")
 const skipWhitespace = require("./skipWhitespace.js")
 const config = require("./config")
+const getOperator = require("./getOperator")
