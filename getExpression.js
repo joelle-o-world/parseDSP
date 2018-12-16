@@ -58,6 +58,9 @@ function getExpression(str, i0) {
 function getSimpleExpression(str, startIndex) {
   startIndex = startIndex || 0
 
+
+  if(str[startIndex] == "{")
+    return getJSON(str, startIndex)
   if(str[startIndex] == "(")
     return getExpression(str, startIndex)
 
@@ -93,3 +96,4 @@ const skipWhitespace = require("./skipWhitespace")
 const getOperatorOperand = require("./getOperatorOperand")
 const getShorthand = require("./getShorthand")
 const getString = require("./getString")
+const getJSON = require("./getJSON")

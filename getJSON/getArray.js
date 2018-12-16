@@ -30,7 +30,7 @@ function getArray(str, i0=0) {
 
   return {
     type: "json",
-    json: array,
+    o: array,
     length: i-i0
   }
 }
