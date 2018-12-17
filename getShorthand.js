@@ -4,22 +4,31 @@ function getShorthand(str, i0) {
   if(!constr || config.shorthandConstructors.indexOf(constr) == -1)
     return null
 
-  var iN = i0 + constr.length-1
+  var i = i0 + constr.length
   var args = []
-  do {
-    var arg = getNumber(str, iN+1)
-    if(arg) {
-      args.push(arg)
-      iN += arg.length+1
-    } else
-      break;
-  } while(str[iN] == "|")
+
+  var n = getNumber(str, i)
+  if(n) {
+    args.push(n)
+    i += n.length
+    while(str[i] == "|") {
+      i++
+      var n = getNumber(str, i)
+      if(!n)
+        return null
+      else {
+        args.push(n)
+        i += n.length
+        continue
+      }
+    }
+  }
 
   return {
     type: "shorthand",
     constructorAlias: constr,
     arguments: args,
-    length: iN-i0
+    length: i-i0
   }
 }
 
