@@ -2,11 +2,11 @@ function getExpression(str, i0) {
   i0 = i0 || 0
 
   var i1 = i0
-  if(str[i0] == "(") {
+  /*if(str[i0] == "(") {
     var bracketed = true
     i1++
   } else
-    var bracketed = false
+    var bracketed = false*/
 
   var expr0 = getSimpleExpression(str, i1)
   if(expr0 == null)
@@ -23,18 +23,18 @@ function getExpression(str, i0) {
     } else break
   }
 
-  if(bracketed) {
+  /*if(bracketed) {
     if(str[iN] == ")")
       iN++
     else
       return null
-  }
+  }*/
 
   var length = iN-i0
   for(var i in oList)
     delete oList[i].length
 
-  while(oList.length > 1)
+  while(oList.length > 1){
     for(var i=1; i<oList.length; i++){
       if(i == oList.length-1 || oList[i].bindingOrder < oList[i+1].bindingOrder) {
         if(i > 1) {
@@ -50,6 +50,7 @@ function getExpression(str, i0) {
         }
       }
     }
+  }
 
   oList[0].length = length
   return oList[0]
@@ -61,8 +62,19 @@ function getSimpleExpression(str, startIndex) {
 
   if(str[startIndex] == "{")
     return getJSON(str, startIndex)
-  if(str[startIndex] == "(")
-    return getExpression(str, startIndex)
+
+  if(str[startIndex] == "(") {
+    var i = skipWhitespace(str, startIndex+1)
+    var expr = getExpression(str, i)
+    if(!expr)
+      return null
+    i = skipWhitespace(str, i + expr.length)
+    if(str[i] != ")")
+      return null
+    expr.length = i+1-startIndex
+    expr.bracketed = true
+    return expr
+  }
 
   var ref = getObjectReference(str, startIndex)
   if(ref)
