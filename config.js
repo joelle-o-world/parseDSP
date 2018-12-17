@@ -1,5 +1,6 @@
 module.exports = {
   operators: [
+    "^",
     "*",
     "/",
     "@",
@@ -13,7 +14,7 @@ module.exports = {
     "Hz",
   ],
 
-  shorthandConstructors: ["O", "Z", "Sq", "A", "D", "t"]
+  shorthandConstructors: ["O", "Z", "Sq", "A", "D", "t", "random"]
 }
 
 const components = require("../components")

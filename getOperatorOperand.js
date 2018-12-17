@@ -2,7 +2,7 @@ function getOperatorOperand(str, i0) {
   i0 = i0 || 0
 
   var i1 = i0
-  var operator = str[i1]
+  var operator = getOperator(str, i0)//str[i1]
   var bindingOrder = config.operators.indexOf(operator)
   if(bindingOrder == -1)
     return null

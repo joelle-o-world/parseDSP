@@ -1,24 +1,16 @@
-function getOperator(str, i0) {
-
-  for(var j in operators) {
-    var op = operators[j]
-    if(i0 + op.length < str.legnth)
-      for(var i=0; i<op.length; i++) {
-        console.log(str[i0 + i], op[i])
-        if(str[i0 + i] != op[i])
-          break
-        }
-      else
-        break
-
-      if(i == op.length) {
-        console.log("winner", op)
-        return op
-      } else
-        console.log("not", op, str.slice(i0))
+function getOperator(str, i0=0) {
+  var winner = ""
+  for(var i in operators) {
+    var operator = getSpecific(operators[i], str, i0)
+    if(operator && operator.length > winner.length)
+      winner = operator
   }
-  return null
+  if(winner.length)
+    return winner
+  else
+    return null
 }
 
 module.exports = getOperator
 const {operators} = require("./config")
+const getSpecific = require("./getSpecific")
