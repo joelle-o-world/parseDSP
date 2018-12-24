@@ -11,7 +11,7 @@ function getShorthand(str, i0) {
   if(n) {
     args.push(n)
     i += n.length
-    while(str[i] == "|") {
+    while(str[i] == ",") {
       i++
       var n = getNumber(str, i)
       if(!n)
