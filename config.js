@@ -1,12 +1,13 @@
 module.exports = {
   operators: [
-    "!",
+    "at",
     "^",
     "*",
     "/",
     "@",
     "+",
     "-",
+    "!",
     ",", // concat
     "->", // connect
     ">|",
