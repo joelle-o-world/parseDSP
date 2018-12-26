@@ -1,5 +1,6 @@
 module.exports = {
   operators: [
+    "->", // connect
     "at",
     "^",
     "*",
