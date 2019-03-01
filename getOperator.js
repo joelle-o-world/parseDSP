@@ -5,9 +5,10 @@ function getOperator(str, i0=0) {
     if(operator && operator.length > winner.length)
       winner = operator
   }
-  if(winner.length)
+  if(winner.length) {
+    console.log("Got operator:", winner)
     return winner
-  else
+  } else
     return null
 }
 
