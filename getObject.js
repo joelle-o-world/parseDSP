@@ -3,7 +3,7 @@ function getObject(str, i0) {
   if(str[i0] != "[")
     return null
 
-  var i1 = skipWhitespace(str, i0+1)
+  var i1 = skipCommentsAndWhitespace(str, i0+1)
 
   var constructor = getWord(str, i1)
   if(!constructor)
@@ -25,7 +25,7 @@ function getObject(str, i0) {
     }
 
     if(countWhitespace(str, iN)) {
-      iN = skipWhitespace(str, iN)
+      iN = skipCommentsAndWhitespace(str, iN)
       if(str[iN] == "]") {
         obj.length = iN-i0 + 1
         return obj
@@ -65,7 +65,7 @@ function getObject(str, i0) {
 }
 
 module.exports = getObject
-const skipWhitespace = require("./skipWhitespace.js")
+const skipCommentsAndWhitespace = require("./skipCommentsAndWhitespace.js")
 const getWord = require("./getWord")
 const getArgument = require("./getArgument")
 const countWhitespace = require("./countWhitespace")

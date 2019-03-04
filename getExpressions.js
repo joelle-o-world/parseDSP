@@ -3,7 +3,7 @@ function getExpressions(str, i0) {
 
   var expressions = []
 
-  for(var i=i0; i<str.length; i=skipWhitespace(str, i+expr.length)) {
+  for(var i=i0; i<str.length; i=skipCommentsAndWhitespace(str, i+expr.length)) {
     var expr = getExpression(str, i)
     if(expr)
       expressions.push(expr)
@@ -25,4 +25,4 @@ function getExpressions(str, i0) {
 
 module.exports = getExpressions
 const getExpression = require("./getExpression")
-const skipWhitespace = require("./skipWhitespace")
+const skipCommentsAndWhitespace = require("./skipCommentsAndWhitespace")

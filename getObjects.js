@@ -3,7 +3,7 @@ function getObjects(str, i0) {
 
   var objs = []
 
-  for(var i=i0; i<str.length; i=skipWhitespace(str, i+obj.length)) {
+  for(var i=i0; i<str.length; i=skipCommentsAndWhitespace(str, i+obj.length)) {
     var obj = getObject(str, i)
     if(obj)
       objs.push(obj)
@@ -25,4 +25,4 @@ function getObjects(str, i0) {
 
 module.exports = getObjects
 const getObject = require("./getObject")
-const skipWhitespace = require("./skipWhitespace")
+const skipCommentsAndWhitespace = require("./skipCommentsAndWhitespace")

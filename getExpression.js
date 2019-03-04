@@ -15,11 +15,11 @@ function getExpression(str, i0) {
   var iN = i1 + expr0.length
   var oList = [expr0]
   while(true) {
-    //iN = skipWhitespace(str, iN)
-    var op = getOperatorOperand(str, skipWhitespace(str, iN))
+    //iN = skipCommentsAndWhitespace(str, iN)
+    var op = getOperatorOperand(str, skipCommentsAndWhitespace(str, iN))
     if(op) {
       oList.push(op)
-      iN = skipWhitespace(str, iN) + op.length
+      iN = skipCommentsAndWhitespace(str, iN) + op.length
     } else break
   }
 
@@ -64,11 +64,11 @@ function getSimpleExpression(str, startIndex) {
     return getJSON(str, startIndex)
 
   if(str[startIndex] == "(") {
-    var i = skipWhitespace(str, startIndex+1)
+    var i = skipCommentsAndWhitespace(str, startIndex+1)
     var expr = getExpression(str, i)
     if(!expr)
       return null
-    i = skipWhitespace(str, i + expr.length)
+    i = skipCommentsAndWhitespace(str, i + expr.length)
     if(str[i] != ")")
       return null
     expr.length = i+1-startIndex
@@ -108,7 +108,7 @@ module.exports.simple = getSimpleExpression
 const getObjectOrObjectProperty = require("./getObjectOrObjectProperty")
 const getObjectReference = require("./getObjectReference.js")
 const getNumber = require("./getNumber.js")
-const skipWhitespace = require("./skipWhitespace")
+const skipCommentsAndWhitespace = require("./skipCommentsAndWhitespace")
 const getOperatorOperand = require("./getOperatorOperand")
 const getShorthand = require("./getShorthand")
 const getString = require("./getString")
