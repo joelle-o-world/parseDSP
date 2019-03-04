@@ -92,6 +92,10 @@ function getSimpleExpression(str, startIndex) {
   if(shorthand)
     return shorthand
 
+  var variable = getVariable(str, startIndex)
+  if(variable)
+    return variable
+
   var string = getString(str, startIndex)
   if(string)
     return string
@@ -109,3 +113,4 @@ const getOperatorOperand = require("./getOperatorOperand")
 const getShorthand = require("./getShorthand")
 const getString = require("./getString")
 const getJSON = require("./getJSON")
+const getVariable = require('./getVariable')
