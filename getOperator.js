@@ -6,7 +6,6 @@ function getOperator(str, i0=0) {
       winner = operator
   }
   if(winner.length) {
-    console.log("Got operator:", winner)
     return winner
   } else
     return null

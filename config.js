@@ -22,7 +22,12 @@ module.exports = {
     "Hz",
   ],
 
-  shorthandConstructors: ["O", "Z", "Sq", "A", "D", "t", "random", "LP", "AP", "HP"]
+  shorthandConstructors: [
+    "O", "Z", "Sq", "Tri", "Triangle",
+    "A", "D",
+    "t", "random", 
+    "LP", "AP", "HP"
+  ]
 }
 
 const components = require("../patchesAndComponents")
