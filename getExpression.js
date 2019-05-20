@@ -34,18 +34,33 @@ function getExpression(str, i0) {
   for(var i in oList)
     delete oList[i].length
 
-  while(oList.length > 1){
+  console.log(oList)
+
+  // Note: the smaller the bindingOrder, the stickier the bind!
+
+  while(oList.length > 1) {
     for(var i=1; i<oList.length; i++){
-      if(i == oList.length-1 || oList[i].bindingOrder < oList[i+1].bindingOrder) {
+      if(
+        i == oList.length-1 // at last element
+        || oList[i].bindingOrder < oList[i+1].bindingOrder //
+      ) {
+
+        while(i>1 && oList[i-1].bindingOrder == oList[i].bindingOrder)
+          i--
+
         if(i > 1) {
-          oList[i].a = oList[i-1].b
-          oList[i-1].b = oList[i]
-          oList.splice(i, 1)
+          // bind [i] to [i-1]
+          oList[i].a = oList[i-1].b // put left operand of [i-1] in right of [i]
+          oList[i-1].b = oList[i] // copy [i] back one to [i-1]
+          oList.splice(i, 1) // remove [i]
+          i--
           break
         } else {
-          oList[i].a = oList[i-1]
-          oList[i-1] = oList[i]
-          oList.splice(i, 1)
+          // here, i equals 1
+          oList[1].a = oList[0]
+          oList[0] = oList[i]
+          oList.splice(1, 1)
+          i--
           break
         }
       }
